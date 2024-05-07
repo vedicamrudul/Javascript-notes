@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>Modern Family</li>
+        <li>The good place</li>
+        <li>Stranger Things</li>
+    </ul>
+</body>
+
+<script>
+    //to edit
+
+    //method 1
+
+    const li1=document.querySelector('li:first-child');
+    li1.innerHTML='Friends';
+
+    //method2
+
+    const oldli2=document.querySelector("li:nth-child(2)");
+    const newli2=document.createElement('li');
+   newli2.appendChild(document.createTextNode('The office'));
+   //newli2.textContent='The office'
+    oldli2.replaceWith(newli2)
+
+    //method 3
+
+    const oldli3=document.querySelector('li:nth-child(3)');
+    console.log(`${oldli3.outerHTML} and ${oldli3.innerHTML}`)
+    oldli3.outerHTML='<li>Schiits Creek</li>'
+
+    //ig outer html has the tags selected too or something?
+
+</script>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main_container::before{
+            content:'';
+            background-image: url('https://unsplash.com/photos/jUPOXXRNdcA/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mjh8fGhlYWx0aHxlbnwwfDB8fHwxNzA2MDYyODU4fDA&force=true');
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            opacity: 0.3;
+        }
+        .main_container{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .inner_container{
+            position: absolute;
+            left: 25vw;
+            border: 0.5px solid rgb(99, 98, 98);
+            width: 50vw;
+            height: 40vh;
+            opacity: 1;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            flex-direction: column;
+        }
+        .heading{
+            margin-top: 20px;
+        }
+        label{
+           
+            font-size: 1.4em;
+        }
+        .inputs{
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0px;
+        }
+        .inputs div{
+            margin: 15px 0px;
+        }
+        button{
+            margin: 25px 0px;
+            height: 4vh;
+            width: 15vw;
+            font-size: 1.1em;
+            align-self: center;
+        }
+        .newfont{
+            font-size: 1.7rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_container">
+        <div class="inner_container">
+            <div class="heading"><h1>BMI calculator</h1></div>
+            <div class="inputs">
+
+                <div class="unit">
+                <label for="weight">Weight (in Kgs): </label>
+                <input type="text" id="weight">
+            </div>
+
+            <div class="unit">
+                <label for="height">Height (in Cms): </label>
+                <input type="text" id="height">
+            </div>  
+
+            <button id="btn">
+                calculate
+            </button>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const button=document.getElementById('btn');
+    
+  
+
+    const weight=
+    button.addEventListener('click', (btn)=>{
+        const weightin=Number(document.getElementById('weight').value);
+    const heightin=Number(document.getElementById('height').value);
+//validation nahi kiya yaar sorry mia khudse karne gayi projecy.
+    
+        const unit=document.querySelectorAll('.unit');
+        unit.forEach((e)=>{
+            e.remove();
+        })
+        button.remove();
+        const height=heightin/100;
+        const bmi1=weightin/(height*height);
+        console.log(bmi1)
+        const bmi=Number(bmi1.toFixed(2));
+        let status;
+        if(bmi<=18.6){
+             status='Underweight'
+        }
+        else if(bmi<24.9 && bmi>18.6){
+             status='normal weight'
+        }
+        else if(bmi>=24.9){
+             status='Overweight'
+        }
+        const newdiv=document.createElement('div')
+        // newdiv.innerHTML='hello';
+        const inner_container=document.querySelector('.inner_container')
+        console.log(inner_container)
+        newdiv.classList.add('newfont')
+        newdiv.appendChild(document.createTextNode(`Your Bmi is ${bmi} and you are ${status}`))
+        inner_container.appendChild(newdiv)
+
+    })
+
+
+</script>
+</html>

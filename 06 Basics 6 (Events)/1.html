@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<!-- this was crazzzzzzy gurl -->
+<!-- um so basically i had to create a div wherever the event took place. -->
+<!-- here the event is clicking of a button, so an aqua color div appears where the button is. This basically uses the e.x and e.y where e is the event that occured. -->
+<!-- clientX and clientY also do the same thing -->
+<!-- see the prototype of e by console.loging it -->
+
+<!-- also see the timeStamp in console and the comment below -->
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events 1</title>
+    <style>
+        .hello{
+            width: 10vw;
+            height: 10vh;
+            background-color: aqua;
+        }
+        button{
+            position: absolute;
+            top: 300px;
+            left: 70px;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">
+button
+    </button>
+</body>
+<script>
+    const btn=document.querySelector('.btn');
+
+    btn.addEventListener('click',(e)=>{
+        console.log(e)
+        const divv=document.createElement('div');
+        divv.classList.add('hello');
+        divv.style.position='absolute';
+        divv.style.left=`${e.x}px`;
+        divv.style.top=`${e.y}px`;
+        const body=document.querySelector('body')
+        body.appendChild(divv);
+        console.log(e.timeStamp);
+        // gives time in millisecond that the event happened in?
+        // oh i think it gives the time in milliseconds that the event occurs in after the program has started running
+    })
+</script>
+
+</html>

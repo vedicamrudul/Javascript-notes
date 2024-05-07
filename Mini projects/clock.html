@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .inner_container {
+            width: 40vw;
+            height: 30vh;
+            background-color: rgb(171, 216, 231);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .clock {
+            width: 20vw;
+            height: 10vh;
+            background-color: rgb(144, 184, 226);
+            box-shadow: 10px 5px 5px rgb(71, 93, 116);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .item {
+            margin: 17px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inner_container">
+            <h1 class="heading item">CLOCK</h1>
+            <div class="clock item"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    const clock = document.querySelector('.clock');
+
+    setInterval(function () {
+        const date = new Date;
+        clock.innerHTML = `<h1>${date.toLocaleTimeString()}</h1>`;
+    }, 1000)
+
+</script>
+
+</html>

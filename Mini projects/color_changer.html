@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container_2{
+            width: 60vw;
+            height: 30vh;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn{
+            width: 8vw;
+            height: 8vh;
+            margin: 15px;
+            border: 1px solid black;
+        }
+
+        .color1{
+            background-color: rgb(231, 137, 153);
+        }
+
+        .color2{
+            background-color: rgb(107, 185, 185);
+        }
+
+        .color3{
+            background-color: rgb(147, 230, 144);
+        }
+
+        .color4{
+            background-color: rgb(141, 129, 216);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container_2">
+            <button id="color1" class="btn color1"></button>
+            <button id="color2" class="btn color2"></button>
+            <button id="color3" class="btn color3"></button>
+            <button id="color4" class="btn color4"></button>
+        </div>
+    </div>
+</body>
+
+<script>
+    const allbtn=document.querySelectorAll('.btn');
+    const container=document.querySelector('.container')
+
+    console.log(container)
+
+    allbtn.forEach((button)=>{
+       
+        button.addEventListener("click", (e)=>{
+            console.log(button.id);
+            container.classList.remove('color1')
+                container.classList.remove('color2')
+                container.classList.remove('color3')
+                container.classList.remove('color4')
+            container.classList.add(button.id);
+        })
+    })
+</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!-- lets talk about removing parent and shit -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="hi"><img src="" alt="monkey pic"></li>
+        <li class="hi"><img src="" alt="baby pic"></li>
+        <li class="hi"><img src="" alt="dress pic"></li>
+        <li class="hi"><img src="" alt="shoe pic"></li>
+        <li class="hi">Options</li>
+        
+    </ul>
+
+
+</body>
+
+<script>
+    const ull= document.querySelector('ul');
+    // ull.addEventListener('click',(e)=>{
+    //     e.target.remove();
+    // })
+
+
+    // //this will remove any element inside ul on clicking on it
+    // e.target means exactly the element where the event occures like if you click on the image then it will dissapear cuz the image is where the event occured not an li element directly so li will stay If you click directly on li then li will dissapear with image.
+
+    //now lets say i want to remove the entire li on clicking on the image. Image is the direct child of li, so li is parent of img. we use e.target.parentNode.remove() to remove parent.
+
+    ull.addEventListener('click', (e)=>{
+        e.target.parentNode.remove();
+    })
+    
+    //now here if you click on options, the whole ul will get removed cuz options is li element and its parent is ul. I hope you get what i am saying.
+
+    
+</script>
+</html>

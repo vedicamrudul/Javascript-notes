@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- this is really not that useful these days but just for knowledge. -->
+</head>
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+<body> 
+
+
+    
+</body>
+<script>
+    const requestUrl='https://api.github.com/users/vedicamrudul'
+    const xhr= new XMLHttpRequest();
+    xhr.open('GET', requestUrl)
+    xhr.send() //using open is not enough you have to write .send() to actually send the request.
+    console.log(xhr.readyState) //this gives the current state of the api request, denoted by the numbers written in the head part of this document. You have to print it again and again to see the change. For this you can use onreadystatechange method which basically peforms a said function (that you will define) everytime the state of the api request chanegs.
+    xhr.onreadystatechange= function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState===4){
+            const data= JSON.parse(this.responseText);
+            // what is basically happening here is that this.response text gives us the response from the api request, that is the data form the backend. It is USUALLY (not always) in the form a string (JSON Format). To use that data we have to convert it into object or wtv so we use JSON.parse for that. then we stored that data in a variable called data. Here we used 'this' to refer to the current context.
+            console.log(`Vedica's followers: ${data.followers}`)
+        }
+    }
+
+   
+   
+    xhr.onread
+</script>
+</html>

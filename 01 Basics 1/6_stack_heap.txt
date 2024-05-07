@@ -1,0 +1,30 @@
+there are two types of memories: 
+stack and heap memory
+
+stack=> primitive datatypes.
+heap=> non prim.
+
+everything stored in stack will have its copy given to you.
+everything stored in heap will have its actual value given to you.
+
+so lets talk in detail with examples. 
+the next file will demonsrate this theory in practical.
+
+Basically lets say we declare two variables- string1 and string2.
+lets say we assigned the value 'vedica' to string1. Now if we
+initialise, string2=striing1, the value 'vedica' will be given to string2
+as well, but it will make a copy of the value.
+so if you change the value of string2, it will not
+affect the value of string1, because both are copies
+of the same value.
+
+However, if we declare two objects, obj1 and obj2, and we 
+say obj2=obj1=>
+ the obj1 and obj2 variables are stored in stack,
+and they both are getting the reference to the same object stored in heap.
+basically both are pointing to the same thing, and so if change is made
+in obj2, it will reflect in obj1.
+
+basically the reference to the object stored in heap is given to the variables
+and not a copy.
+

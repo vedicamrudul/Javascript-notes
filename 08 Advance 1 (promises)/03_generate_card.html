@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        .container{
+            width: 15vw;
+            height: 30vh;
+            background-color: rgb(172, 134, 172);
+            border: 0.5px solid rgb(137, 93, 137);
+            box-shadow: 10px 10px 10px rgb(99, 69, 99);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        img{
+            width: 8vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainContainer">
+        <button id="btn">Generate Card</button>
+    </div>
+   
+</body>
+<script>
+    const btn=document.getElementById('btn');
+    btn.addEventListener('click', generateCard)
+
+    function generateCard(){
+        const requestUrl='https://api.github.com/users/siro844'
+        const xhr=new XMLHttpRequest;
+        xhr.open('GET', requestUrl);
+        xhr.send()
+        let data;
+        xhr.onreadystatechange= function(){
+            if(xhr.readyState===4){
+                data=JSON.parse(this.responseText);
+            }
+            const main_container=document.querySelector('.mainContainer')
+            const name=data.name;
+            const follows=data.followers;
+            const imageUrl=data.avatar_url;
+            const card=document.createElement('div');
+            card.classList.add('container')
+            
+            const nameDiv=document.createElement('div')
+            nameDiv.innerHTML=`${data.name}`
+    
+            const img=document.createElement('img')
+            img.src=`${imageUrl}`
+    
+            main_container.removeChild(btn)
+            card.appendChild(img)
+            card.appendChild(nameDiv)
+            main_container.appendChild(card)
+            
+        }
+
+       
+    }
+
+</script>
+</html>

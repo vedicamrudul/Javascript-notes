@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- settimeout/ cleartimeout/ setInterval -->
+</head>
+<body>
+    <h1>Vedica Is The Best</h1>
+    <button>Stop</button>
+    <hr>
+    <div>if you press the stop button the text will not change after 2 seconds</div>
+</body>
+
+<script>
+    const vh1= document.querySelector('h1')
+    const stopbtn=document.querySelector('button')
+
+    const changetxt=()=>{
+        vh1.innerHTML="Text Changed"
+    }
+    const timer= setTimeout(changetxt, 2000)    
+    // this gets executed even if its stored in a variable.
+
+    stopbtn.addEventListener('click', ()=>{
+        clearInterval(timer)})
+</script>
+</html>
+

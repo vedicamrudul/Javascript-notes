@@ -1,0 +1,26 @@
+so the then() in fetch api also returns a promise.
+
+so 
+fetch('url_xyz').then((response)=>{
+    return response.json() // cuz json is also an async function
+}).then((data)=>{
+    //now you can use the data here
+}).catch(()={})
+
+so basically, when you write return in then(), it returns a promise to the next then(), and its kind of like a chain. so when you have to perform multiple async processes then you can chain your then() and keep returning promises cuz you know woh ek ke baad ek execute hoga as soon as the first is done.
+
+
+First, a promise can be in one of three states:
+
+pending: the promise has been created, and the asynchronous function it's associated with has not succeeded or failed yet. This is the state your promise is in when it's returned from a call to fetch(), and the request is still being made.
+fulfilled: the asynchronous function has succeeded. When a promise is fulfilled, its then() handler is called.
+rejected: the asynchronous function has failed. When a promise is rejected, its catch() handler is called.
+
+Note that what "succeeded" or "failed" means here is up to the API in question. For example, fetch() rejects the returned promise if (among other reasons) a network error prevented the request being sent, but fulfills the promise if the server sent a response, even if the response was an error like 404 Not Found.
+(basically error aa sakta hai even in the then() part cuz its like um.. reject hota hai jab server tak request pohocha hi nai. jab aisa error aata hai tab woh error reject ke through catch() mai jaata hai. But agar server tak request gaya and phir kuch error aaya, toh woh then() mei hi jayega error. )
+
+Sometimes, we use the term settled to cover both fulfilled and rejected.
+
+A promise is resolved if it is settled, or if it has been "locked in" to follow the state of another promise.
+
+

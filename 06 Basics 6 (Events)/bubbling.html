@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>Owl</li>
+        <li>Eagle</li>
+        <li>Sparrow</li>
+        <li>Peacock</li>
+    </ul>
+</body>
+
+<script>
+    const ull=document.querySelector('ul');
+    ull.addEventListener('click',(e)=>{
+        console.log("mai toh ul pe laga hu")
+    }, false)
+
+
+    const eagle=document.querySelector('li:nth-child(2)');
+    eagle.addEventListener('click',(e)=>{
+        console.log("mai chota baby hu")
+    }, false)
+
+// now after writing the function in event listener, we have written 'false'. This is the default value so even if we dont write it means false only. But what does this mean?
+
+// here we have added two eventlisteners, one on ul (parent) and other on one particular li (child) having eagle written in it. So when we click on eagle li, both events should take place, the one defined for ul and for eagle li. But which first? If you write false in both, chiild will execute first then parent. In true its the opposite. 
+
+// if you dont want it to propogate to the parent or wtv the next event is, then you can use e.stopPropogation(). Just write this and the next one will not execute. 
+
+
+</script>
+
+</html>

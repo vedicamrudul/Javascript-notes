@@ -1,0 +1,5 @@
+// console is not a part of javascript. It is a development tool provided by 
+// document is also not a part of core js. It is injected by the runtime.
+// see javacript can be run on different environment. Phele sirf browser pe run hota tha, ab node pe bhi run hota hai. so document.getElement and all that shit idt it is supported by node js cuz woh sab runtime enviormnet provide karta hai ig toh document and all is given by the browser.
+// there are many enginers that run javascript. One of those engines is V8 engine. Node uses this ig and V8 is writted entirely in C++. So javascript actually runs on C++. V8 engine ka github dekhoge toh usme src file hai uske andar api bhi rahega ek file. Woh api is basically for C++ and javascript to communicate. So apis can be between two languages not only between front end and back end. 
+// console.log is provided by the V8 engine. Javascript is a wrapper for C++

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div class="key">key name</div>
+        <button id="btn">which key</button>
+    </div>
+</body>
+<script>
+    const btn=document.getElementById('btn')
+    const key=document.querySelector('.key')
+    
+    btn.addEventListener('keydown', (e)=>whichkey(e))
+
+    const whichkey=(e)=>{
+        let value;
+        
+        if(e.code.includes('Key')){
+            valuetemp=e.code.split('Key',2);
+            console.log(valuetemp)
+            value=valuetemp[1];
+        }
+        else if(e.code.includes('Digit')){
+            console.log(e.code)
+            valuetemp=e.code.split('Digit', 2)
+            value=valuetemp[1];
+        }
+        else{
+            value=e.code
+        }
+
+        key.innerHTML=`${value}`
+    }
+
+</script>
+</html>

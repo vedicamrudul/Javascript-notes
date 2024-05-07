@@ -1,0 +1,40 @@
+Everything is getting really complicated now. No, i am not talking about my life. My life is pretty smooth flowing right now. I mean there is nothing much happening, only gym and coding (and the stress that comes with it). Okay lets not get away from the point.
+
+promises and fetch are getting confusing so i will try to understand it here.
+
+ASYNCHRONOUS PROGRAMMING:
+Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
+
+Many functions provided by browsers, especially the most interesting ones, can potentially take a long time, and therefore, are asynchronous. For example:
+
+Making HTTP requests using fetch()
+Accessing a user's camera or microphone using getUserMedia()
+Asking a user to select files using showOpenFilePicker()
+So even though you may not have to implement your own asynchronous functions very often, you are very likely to need to use them correctly.
+
+MY NOTES
+so what i have understood is, js is executed synchronously, which means like a single thread. Ek ke baad ek instruction. Toh if one instruction is taking way too long, the others have to just wait. You cannot move on to another task. So ig for that we need to do asynchronous programming to convert some things into asynchronous code. Like the SetTimeout method makes a code asynchronous because it tells the instruction to wait and lets furthur instructions execute. The SetTimeout etc, methods go to the task queue and then are executed one by one by putting it on top of the stack (check out the diagram in my book).
+
+
+PROBLEMS WITH SYNCHRONOUS AND WHAT WE NEED:
+If a program is running and some function is taking a long time, it is blocking the main thread and we cant do other things at the same time. Like i cant type into the textbox, when a function for downloading an image is taking place. 
+
+The reason for this is that this JavaScript program is single-threaded. A thread is a sequence of instructions that a program follows. Because the program consists of a single thread, it can only do one thing at a time: so if it is waiting for our long-running synchronous call to return, it can't do anything else.
+
+What we need is a way for our program to:
+
+Start a long-running operation by calling a function.
+Have that function start the operation and return immediately, so that our program can still be responsive to other events.
+Have the function execute the operation in a way that does not block the main thread, for example by starting a new thread.
+Notify us with the result of the operation when it eventually completes.
+That's precisely what asynchronous functions enable us to do. The rest of this module explains how they are implemented in JavaScript.
+
+
+
+
+EVENT HANDLERS:
+The description we just saw of asynchronous functions might remind you of event handlers, and if it does, you'd be right. Event handlers are really a form of asynchronous programming: you provide a function (the event handler) that will be called, not right away, but whenever the event happens. If "the event" is "the asynchronous operation has completed", then that event could be used to notify the caller about the result of an asynchronous function call.
+
+Some early asynchronous APIs used events in just this way. The XMLHttpRequest API enables you to make HTTP requests to a remote server using JavaScript. Since this can take a long time, it's an asynchronous API, and you get notified about the progress and eventual completion of a request by attaching event listeners to the XMLHttpRequest object.
+
+

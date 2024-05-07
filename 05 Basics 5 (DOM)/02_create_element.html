@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating a div</title>
+</head>
+
+<body>
+    <script>
+        const div = document.createElement("div");
+        div.className = "main_class";
+        div.setAttribute("title", "hello");
+        div.style.width = "100vw";
+        div.style.backgroundColor = "pink";
+        // div.innerHTML="hello friends vedi here";
+
+        const addText = document.createTextNode("hello friends vedi here");
+        div.appendChild(addText);
+        document.body.appendChild(div);
+    </script>
+</body>
+
+</html>
